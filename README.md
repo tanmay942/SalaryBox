@@ -1,53 +1,68 @@
 # SalaryBox
 
-Android staff attendance and salary management application.
+> Android-based staff attendance and salary management application with admin-controlled staff management, face enrollment, face-verified attendance, and location-based attendance records.
 
 ## Overview
 
-SalaryBox is an Android application designed to manage staff information,
-staff attendance, face-based attendance verification, and attendance history
-from an admin interface.
+SalaryBox is an Android application designed to simplify staff attendance management.
 
-## Main Screens
+The application provides separate workflows for **Administrators** and **Staff members**. Administrators can manage staff profiles, enroll employee faces, and review attendance records, while staff members can mark attendance using face verification with captured location and timestamp information.
 
-- Login
-- Admin — Staff List
-- Admin — Add Staff
-- Admin — Face Enrollment
-- Staff — Mark Attendance
-- Admin — Staff Profile / Attendance History
+---
 
-## Core Features
+## Key Features
 
-- Admin login
-- Staff management
-- Add and maintain staff profiles
-- Staff face enrollment using the phone's front camera
-- Face recognition when marking attendance
-- Attendance capture with date and time
-- Current latitude and longitude capture
-- Attendance records visible to the administrator
+### Admin
 
-## Technical Requirements
+- Secure admin login
+- View staff members
+- Add staff members
+- View individual staff profiles
+- View employee salary information
+- Enroll staff face using the device camera
+- Check face enrollment status
+- View attendance history
+- Monitor staff attendance records
 
-The application uses the Android platform and Kotlin.
+### Staff
 
-The application requires:
+- Staff login
+- Personalized staff dashboard
+- Face enrollment status
+- Face-based attendance verification
+- Attendance marking using camera verification
+- Automatic date and time capture
+- Latitude and longitude capture
+- Attendance history
+- Captured attendance image
 
-- Front camera access for face enrollment and attendance verification
-- Location access for capturing attendance coordinates
-- Persistent storage for staff and attendance records
-- Android device/emulator with the required permissions enabled
+---
 
-## Project Structure
+## Application Workflow
 
 ```text
-SalaryBox/
-├── app/
-│   └── src/
-│       └── main/
-├── gradle/
-├── build.gradle.kts
-├── settings.gradle.kts
-├── gradle.properties
-└── README.md
+                    ┌───────────────┐
+                    │     Login     │
+                    └───────┬───────┘
+                            │
+              ┌─────────────┴─────────────┐
+              │                           │
+              ▼                           ▼
+       ┌──────────────┐            ┌──────────────┐
+       │     Admin    │            │    Staff     │
+       │   Dashboard  │            │   Dashboard  │
+       └──────┬───────┘            └──────┬───────┘
+              │                           │
+      ┌───────┼────────┐                  │
+      │       │        │                  ▼
+      ▼       ▼        ▼          Face Verification
+   Staff     Add    Attendance             │
+   List     Staff     History              ▼
+      │                           Mark Attendance
+      ▼                                  │
+Staff Profile                           ▼
+      │                           Date + Time +
+      ▼                           Location + Image
+Face Enrollment                           │
+                                         ▼
+                                  Attendance History
